@@ -10,9 +10,18 @@ var app = angular.module('hconsoleApp', []).config(function ($routeProvider) {
             templateUrl: 'views/node.html',
             controller: 'NodeCtrl'
         })
+        .when('/physic/:sessionid', {
+            templateUrl: 'views/physicalDistribution.html',
+            controller: 'PhysicCtrl'
+        })
+        .when('/logic/:sessionid', {
+            templateUrl: 'views/logicalDistribution.html',
+            controller: 'LogicCtrl'
+        })
         .otherwise({
             redirectTo: '/'
         });
+
 });
 
 app.factory('highcharts', function ($window) {
@@ -24,6 +33,3 @@ app.factory('highcharts', function ($window) {
     return $window.Highcharts;
 });
 
-app.factory('HubiquitusClient', function ($window) {
-    return $window.HubiquitusClient;
-});
